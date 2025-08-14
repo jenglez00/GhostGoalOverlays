@@ -1,28 +1,24 @@
-// docs/widgets/GoalWidget/Follower-Goal/script.js
+(function() {
+  function updateFollowerGoal() {
+    twitch.getFollowers(config.channelName)
+      .then(data => {
+        // data.total might be a string or number
+        const current = Number(data.total) || 0;
+        const goal    = Number(config.followersGoal) || 100;
+        const percent = Math.min((current / goal) * 100, 100);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const cfg = window.widgetConfig || {};
-  const { target = 0, label = "Followers" } = cfg.followerGoals || {};
-
-  // for now we’re using a placeholder; later twitch.js can populate this
-  const current = 0;
-
-  // grab our elements
-  const textEl = document.getElementById("follower-text");
-  const fillEl = document.getElementById("progress-fill");
-  const iconEl = document.getElementById("ghost-icon");
-
-  // apply any theme overrides from config.js
-  if (cfg.theme) {
-    // CSS variables for colors
-    document.documentElement.style.setProperty("--primary-color", cfg.theme.primaryColor);
-    document.documentElement.style.setProperty("--bg-color", cfg.theme.backgroundColor);
-    // icon opacity
-    iconEl.style.opacity = cfg.theme.iconOpacity;
+        document.getElementById('follower-text').textContent = `${current}/${goal}`;
+        document.getElementById('progress-fill').style.width =
+          percent + '%';
+      })
+      .catch(err => {
+        console.error('Follower-Goal error:', err);
+      });
   }
 
-  // update the UI text + progress bar width
-  textEl.textContent = `${current} / ${target} ${label}`;
-  const pct = target > 0 ? (current / target) * 100 : 0;
-  fillEl.style.width = `${pct}%`;
-});
+  // Initial draw
+  updateFollowerGoal();
+
+  // Poll every 60s for updates
+  setInterval(updateFollowerGoal, 60_000);
+})();
