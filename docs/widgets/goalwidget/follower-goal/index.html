@@ -3,37 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Follower Goal Widget</title>
-
-  <!-- 1) shared/common styles -->
-  <link rel="stylesheet" href="../../../common/style.css">
-
-  <!-- 2) widget-specific styles -->
+  <!-- Common styles -->
+  <link rel="stylesheet" href="../../common/style.css">
+  <!-- Widget-specific styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- 3) config must come before any widget code -->
-  <script src="../../../common/config.js"></script>
-
-  <!-- 4) (optional) shared Twitch helpers -->
-  <script src="../../../common/twitch.js"></script>
 </head>
 <body>
-  <div id="follower-widget">
-    <!-- must match icon lookup in script.js -->
+  <div id="goal-container">
     <img
-      id="ghost-icon"
-      src="../../../common/images/ghosty-donut.svg"
-      alt="Ghosty Donut Icon"
+      id="ghost-donut"
+      src="../../common/images/ghosty-donut.svg"
+      alt="Ghost Donut"
     >
-
-    <!-- must match text lookup in script.js -->
-    <div id="follower-text">0 / 0 Followers</div>
-
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-fill"></div>
+    <div id="follower-text">0/0</div>
+    <div id="progress-bar">
+      <div id="progress-fill"></div>
     </div>
   </div>
 
-  <!-- 5) load your widget logic last, after the DOM nodes exist -->
+  <!-- Common scripts -->
+  <script src="../../common/twitch.js"></script>
+  <script src="../../common/config.js"></script>
+  <!-- Widget-specific logic -->
   <script src="script.js"></script>
 </body>
 </html>
