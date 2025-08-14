@@ -1,53 +1,47 @@
-/* Reset & center the widget */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-color, #F8F8F8);
-  font-family: sans-serif;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  box-sizing: border-box;
+/* Container centers itself within any parent */
+#goal-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
 }
 
-/* Widget container */
-#follower-widget {
-  width: 240px;
-  padding: 16px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-/* Ghost icon */
-#ghost-icon {
-  width: 48px;
-  height: 48px;
-  /* opacity will be overridden by script if needed */
-}
-
-/* Follower text */
-#follower-text {
-  margin: 12px 0;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* Progress bar */
-.progress-bar {
+/* SVG donut */
+#ghost-donut {
   width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Follower count text, centered over the donut */
+#follower-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Progress bar background */
+#progress-bar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
   height: 12px;
-  background: #ddd;
+  background: rgba(255,255,255,0.3);
   border-radius: 6px;
   overflow: hidden;
 }
 
-.progress-fill {
+/* Fill element grows in width to reflect progress */
+#progress-fill {
   width: 0%;
   height: 100%;
-  background: var(--primary-color, #FF8800);
-  transition: width 0.4s ease;
+  background: #ff69b4;
+  transition: width 0.5s ease;
 }
