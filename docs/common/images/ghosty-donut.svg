@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Donut ring -->
+  <circle
+    cx="32" cy="32" r="28"
+    fill="none"
+    stroke="#FF8800"
+    stroke-width="6" />
+
+  <!-- Ghost body -->
+  <path
+    d="M20,36
+       C20,28 28,20 32,20
+       C36,20 44,28 44,36
+       L44,52
+       L38,46
+       L32,52
+       L26,46
+       L20,52
+       Z"
+    fill="#FFFFFF"
+    stroke="#FF8800"
+    stroke-width="2" />
+
+  <!-- Eyes -->
+  <circle cx="26" cy="30" r="2" fill="#FF8800"/>
+  <circle cx="38" cy="30" r="2" fill="#FF8800"/>
+
+</svg>
+
