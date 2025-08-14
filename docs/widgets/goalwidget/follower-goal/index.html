@@ -4,28 +4,28 @@
   <meta charset="UTF-8">
   <title>Follower Goal Widget</title>
 
-  <!-- 1) pull in your shared styles -->
+  <!-- 1) shared/common styles -->
   <link rel="stylesheet" href="../../../common/style.css">
 
-  <!-- 2) widget‐specific styles -->
+  <!-- 2) widget-specific styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- 3) load your config so window.widgetConfig is populated -->
+  <!-- 3) config must come before any widget code -->
   <script src="../../../common/config.js"></script>
 
-  <!-- 4) shared Twitch helper (if you’re using twitch.js later) -->
+  <!-- 4) (optional) shared Twitch helpers -->
   <script src="../../../common/twitch.js"></script>
 </head>
 <body>
   <div id="follower-widget">
-    <!-- 5) point straight at the SVG in common/images -->
+    <!-- must match icon lookup in script.js -->
     <img
       id="ghost-icon"
       src="../../../common/images/ghosty-donut.svg"
       alt="Ghosty Donut Icon"
     >
 
-    <!-- 6) we’ll update this in script.js -->
+    <!-- must match text lookup in script.js -->
     <div id="follower-text">0 / 0 Followers</div>
 
     <div class="progress-bar">
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <!-- 7) your per-widget logic last -->
+  <!-- 5) load your widget logic last, after the DOM nodes exist -->
   <script src="script.js"></script>
 </body>
 </html>
